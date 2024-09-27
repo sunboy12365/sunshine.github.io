@@ -1,133 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>知识领域页面</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* 导航栏样式 */
-    nav {
-      background-color: #333;
-      color: white;
-      padding: 15px 0;
-      display: flex;
-      justify-content: center;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 20px;
-      display: flex;
-      align-items: center;
-    }
-
-    /* 图标样式 */
-   .icon {
-      width: 25px;
-      height: 25px;
-      margin-right: 10px;
-    }
-
-    /* 内容区域样式 */
-   .content {
-      padding: 30px;
-    }
-
-   .section {
-      margin-bottom: 50px;
-    }
-
-    h2 {
-      color: #333;
-      border-bottom: 2px solid #333;
-      padding-bottom: 10px;
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    a {
-      color: #007BFF;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编程笔记宝库</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <nav>
-    <a href="#mechanical">
-      <img src="mechanical_icon.png" alt="机械工程图标" class="icon">机械工程
-    </a>
-    <a href="#graphical">
-      <img src="graphical_icon.png" alt="图形化编程图标" class="icon">图形化编程
-    </a>
-    <a href="#python">
-      <img src="python_icon.png" alt="Python 编程图标" class="icon">Python 编程
-    </a>
-    <a href="#cpp">
-      <img src="cpp_icon.png" alt="C++编程图标" class="icon">C++编程
-    </a>
-  </nav>
+    <nav>
+        <div class="nav-content">
+            <h1>编程笔记宝库</h1>
+            <div class="learning-resources">
+                <a href="https://www.python.org" target="_blank" class="resource-link">
+                    <img src="https://www.python.org/static/favicon.ico" alt="Python" class="resource-icon">
+                    <span>Python</span>
+                </a>
+                <a href="https://isocpp.org" target="_blank" class="resource-link">
+                    <img src="https://isocpp.org/favicon.ico" alt="C++" class="resource-icon">
+                    <span>C++</span>
+                </a>
+                <a href="https://studio.aicode123.com/course/list" target="_blank" class="resource-link">
+                    <div class="aicode-icon">
+                        <div class="aicode-icon-inner">AI</div>
+                    </div>
+                    <span>AICode Studio</span>
+                </a>
+                <a href="https://stackoverflow.com" target="_blank" class="resource-link">
+                    <img src="https://cdn.sstatic.net/Sites/stackoverflow/Img/favicon.ico" alt="Stack Overflow" class="resource-icon">
+                    <span>Stack Overflow</span>
+                </a>
+                <a href="https://github.com" target="_blank" class="resource-link">
+                    <img src="https://github.githubassets.com/favicons/favicon.svg" alt="GitHub" class="resource-icon">
+                    <span>GitHub</span>
+                </a>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="搜索代码笔记...">
+                <button onclick="searchNotes()">搜索</button>
+            </div>
+        </div>
+    </nav>
 
-  <div class="content">
-    <div id="mechanical" class="section">
-      <h2>机械工程</h2>
-      <p>机械工程是一门涉及机械设计、制造和自动化的学科。以下是一些相关资源：</p>
-      <ul>
-        <li><a href="https://www.mechanicalengineeringresource.com">机械工程资源网站</a></li>
-        <li><a href="https://www.mechanicaldesignforum.com">机械设计论坛</a></li>
-      </ul>
-      <img src="mechanical_image.jpg" alt="机械工程相关图片" width="300">
+    <div class="content-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <h2>快速导航</h2>
+                <ul>
+                    <li><a href="#pythonNotes">Python 笔记</a></li>
+                    <li><a href="#cppNotes">C++ 笔记</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-toggle"></div>
+        </aside>
+
+        <main>
+            <section id="pythonNotes">
+                <h2>Python 代码笔记</h2>
+                <div class="code-note">
+                    <h3>列表推导式</h3>
+                    <pre><code>
+# 创建一个包含1到10的平方的列表
+squares = [x**2 for x in range(1, 11)]
+print(squares)
+# 输出: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+# 使用条件筛选偶数
+even_squares = [x**2 for x in range(1, 11) if x % 2 == 0]
+print(even_squares)
+# 输出: [4, 16, 36, 64, 100]
+                    </code></pre>
+                    <p class="comment">列表推导式是Python中创建列表的简洁方法，可以结合条件筛选。</p>
+                </div>
+                <div class="code-note">
+                    <h3>装饰器</h3>
+                    <pre><code>
+def timing_decorator(func):
+    import time
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f"{func.__name__} 执行时间: {end - start} 秒")
+        return result
+    return wrapper
+
+@timing_decorator
+def slow_function():
+    import time
+    time.sleep(2)
+    print("函数执行完毕")
+
+slow_function()
+# 输出:
+# 函数执行完毕
+# slow_function 执行时间: 2.0021 秒
+                    </code></pre>
+                    <p class="comment">装饰器可以在不修改原函数的情况下，为其添加新的功能。</p>
+                </div>
+            </section>
+
+            <section id="cppNotes">
+                <h2>C++ 代码笔记</h2>
+                <div class="code-note">
+                    <h3>智能指针</h3>
+                    <pre><code>
+#include &lt;memory&gt;
+#include &lt;iostream&gt;
+
+class MyClass {
+public:
+    MyClass() { std::cout << "构造函数调用\n"; }
+    ~MyClass() { std::cout << "析构函数调用\n"; }
+    void doSomething() { std::cout << "做些事情\n"; }
+};
+
+int main() {
+    {
+        std::unique_ptr&lt;MyClass&gt; ptr = std::make_unique&lt;MyClass&gt;();
+        ptr->doSomething();
+    } // ptr 在这里自动释放
+
+    std::cout << "main 函数结束\n";
+    return 0;
+}
+
+// 输出:
+// 构造函数调用
+// 做些事情
+// 析构函数调用
+// main 函数结束
+                    </code></pre>
+                    <p class="comment">智能指针（如unique_ptr）可以自动管理内存，防止内存泄漏。</p>
+                </div>
+                <div class="code-note">
+                    <h3>Lambda 表达式</h3>
+                    <pre><code>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+int main() {
+    std::vector&lt;int&gt; numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    
+    int sum = 0;
+    std::for_each(numbers.begin(), numbers.end(), [&sum](int n) {
+        if (n % 2 == 0) {
+            sum += n;
+        }
+    });
+
+    std::cout << "偶数和: " << sum << std::endl;
+    // 输出: 偶数和: 30
+
+    return 0;
+}
+                    </code></pre>
+                    <p class="comment">Lambda 表达式提供了一种创建匿名函数对象的简洁方法。</p>
+                </div>
+            </section>
+        </main>
     </div>
 
-    <div id="graphical" class="section">
-      <h2>图形化编程</h2>
-      <p>图形化编程让编程变得更加直观和有趣。</p>
-      <ul>
-        <li><a href="https://scratch.mit.edu">Scratch 官网</a></li>
-        <li><a href="https://appinventor.mit.edu">App Inventor 官网</a></li>
-      </ul>
-      <img src="graphical_image.jpg" alt="图形化编程相关图片" width="300">
+    <div id="searchNavigation" style="display: none;">
+        <span id="searchResultCount"></span>
+        <button id="prevResult">上一个</button>
+        <button id="nextResult">下一个</button>
+        <span id="currentResultIndex"></span>
+        <button id="closeSearch">关闭</button>
     </div>
 
-    <div id="python" class="section">
-      <h2>Python 编程</h2>
-      <p>Python 是一种广泛使用的高级编程语言。</p>
-      <ul>
-        <li><a href="https://www.python.org">Python 官网</a></li>
-        <li><a href="https://docs.python.org">Python 文档</a></li>
-      </ul>
-      <img src="python_image.jpg" alt="Python 编程相关图片" width="300">
-    </div>
+    <footer>
+        <p>书山有路勤为径，学海无涯苦作舟----sunshine</p>
+    </footer>
 
-    <div id="cpp" class="section">
-      <h2>C++编程</h2>
-      <p>C++是一种强大的编程语言，常用于系统级编程和高性能应用。</p>
-      <ul>
-        <li><a href="https://isocpp.org">C++标准委员会官网</a></li>
-        <li><a href="https://www.cppreference.com">C++参考手册</a></li>
-      </ul>
-      <img src="cpp_image.jpg" alt="C++编程相关图片" width="300">
-    </div>
-  </div>
+    <script src="script.js"></script>
 </body>
-
 </html>
