@@ -1,12 +1,15 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const life = document.getElementById('life');
-    const work = document.getElementById('work');
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.querySelector('#background-video video');
+    const backgroundVideo = document.getElementById('background-video');
+    const backgroundImage = document.getElementById('background-image');
 
-    life.addEventListener('click', () => {
-        window.location.href = 'life.html';
+    video.addEventListener('canplaythrough', function() {
+        backgroundVideo.style.display = 'block';
+        backgroundImage.style.display = 'none';
     });
 
-    work.addEventListener('click', () => {
-        window.location.href = 'work.html';
+    video.addEventListener('error', function() {
+        console.error('视频加载失败');
+        backgroundImage.style.display = 'block';
     });
 });
