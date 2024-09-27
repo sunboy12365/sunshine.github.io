@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/work.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/prism.css">
     <style>
         .header-right {
             position: fixed;
@@ -102,7 +103,7 @@
             <div class="content" id="python-content">
                 <h3>基础语法</h3>
                 <h4>1. 变量和数据类型</h4>
-                <pre><code>
+                <pre><code class="language-python">
 # 变量赋值
 x = 5
 y = "Hello, World!"
@@ -117,16 +118,16 @@ tuple_example = (1, 2, 3)
 dict_example = {"name": "John", "age": 30}
                 </code></pre>
                 <h4>2. 条件语句</h4>
-                <pre><code>
+                <pre><code class="language-python">
 if x > 0:
-    print("x is positive")
+    print("x是正数")
 elif x < 0:
-    print("x is negative")
+    print("x是负数")
 else:
-    print("x is zero")
+    print("x是零")
                 </code></pre>
                 <h4>3. 循环</h4>
-                <pre><code>
+                <pre><code class="language-python">
 # For 循环
 for i in range(5):
     print(i)
@@ -136,21 +137,205 @@ count = 0
 while count < 5:
     print(count)
     count += 1
+
+# 列表推导式
+squares = [x**2 for x in range(10)]
                 </code></pre>
                 <h4>4. 函数</h4>
-                <pre><code>
+                <pre><code class="language-python">
 def greet(name):
-    return f"Hello, {name}!"
+    return f"你好，{name}！"
 
-print(greet("Alice"))
+print(greet("世界"))
+
+# 匿名函数（Lambda）
+square = lambda x: x**2
+print(square(5))  # 输出：25
+                </code></pre>
+                <h3>高级特性</h3>
+                <h4>1. 装饰器</h4>
+                <pre><code class="language-python">
+import time
+
+def timer(func):
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f"函数 {func.__name__} 运行时间：{end - start}秒")
+        return result
+    return wrapper
+
+@timer
+def slow_function():
+    time.sleep(2)
+    print("这是一个耗时的函数")
+
+slow_function()
+                </code></pre>
+                <h4>2. 生成器</h4>
+                <pre><code class="language-python">
+def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+for num in fibonacci(10):
+    print(num)
+                </code></pre>
+                <h3>数据结构</h3>
+                <h4>1. 列表（list）</h4>
+                <pre><code class="language-python">
+# 创建列表
+my_list = [1, 'apple', 3.14]
+
+# 访问元素
+print(my_list[1])
+
+# 添加元素
+my_list.append('banana')
+print(my_list)
+
+# 删除元素
+my_list.remove('apple')
+print(my_list)
+
+# 切片操作
+sliced_list = my_list[1:3]
+print(sliced_list)
+                </code></pre>
+                <h4>2. 元组（tuple）</h4>
+                <pre><code class="language-python">
+# 创建元组
+my_tuple = (1, 'apple', 3.14)
+
+# 访问元素
+print(my_tuple[1])
+
+# 元组不能修改元素，以下会报错
+# my_tuple[1] = 'banana'
+                </code></pre>
+                <h4>3. 字典（dict）</h4>
+                <pre><code class="language-python">
+# 创建字典
+my_dict = {'name': 'Alice', 'age': 30}
+
+# 访问值
+print(my_dict['name'])
+
+# 添加键值对
+my_dict['city'] = 'New York'
+print(my_dict)
+
+# 删除键值对
+del my_dict['age']
+print(my_dict)
+                </code></pre>
+                <h4>4. 集合（set）</h4>
+                <pre><code class="language-python">
+# 创建集合
+my_set = {1, 2, 3}
+
+# 添加元素
+my_set.add(4)
+print(my_set)
+
+# 删除元素
+my_set.remove(2)
+print(my_set)
+
+# 并集操作
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+union_set = set1.union(set2)
+print(union_set)
+                </code></pre>
+                <h4>5. 字符串（str）</h4>
+                <pre><code class="language-python">
+# 创建字符串
+my_string = "Hello, World!"
+
+# 访问字符
+print(my_string[0])
+
+# 切片操作
+sliced_string = my_string[7:12]
+print(sliced_string)
+
+# 字符串方法
+upper_string = my_string.upper()
+print(upper_string)
+                </code></pre>
+                <h4>6. 二维列表</h4>
+                <pre><code class="language-python">
+# 创建二维列表
+my_2d_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+# 访问元素
+print(my_2d_list[1][2])
+
+# 修改元素
+my_2d_list[2][1] = 10
+print(my_2d_list)
+                </code></pre>
+                <h4>7. 队列（queue）</h4>
+                <pre><code class="language-python">
+from collections import deque
+
+# 创建队列
+my_queue = deque()
+
+# 入队
+my_queue.append(1)
+my_queue.append(2)
+my_queue.append(3)
+
+# 出队
+print(my_queue.popleft())
+print(my_queue.popleft())
+print(my_queue.popleft())
+                </code></pre>
+                <h4>8. 栈（stack）</h4>
+                <pre><code class="language-python">
+# 创建栈
+my_stack = []
+
+# 入栈
+my_stack.append(1)
+my_stack.append(2)
+my_stack.append(3)
+
+# 出栈
+print(my_stack.pop())
+print(my_stack.pop())
+print(my_stack.pop())
+                </code></pre>
+                <h4>9. 堆（heap）</h4>
+                <pre><code class="language-python">
+import heapq
+
+# 创建堆（最小堆）
+my_heap = []
+
+# 入堆
+heapq.heappush(my_heap, 5)
+heapq.heappush(my_heap, 3)
+heapq.heappush(my_heap, 7)
+
+# 出堆（弹出最小元素）
+print(heapq.heappop(my_heap))
+print(heapq.heappop(my_heap))
+print(heapq.heappop(my_heap))
                 </code></pre>
             </div>
             <div class="content" id="cpp-content" style="display: none;">
                 <h3>基础语法</h3>
                 <h4>1. 变量和数据类型</h4>
-                <pre><code>
+                <pre><code class="language-cpp">
 #include &lt;iostream&gt;
 #include &lt;string&gt;
+#include &lt;vector&gt;
 
 int main() {
     // 变量赋值
@@ -160,24 +345,54 @@ int main() {
     // 数据类型
     int integer_num = 10;
     float float_num = 3.14f;
+    double double_num = 3.14159;
+    char char_value = 'A';
     std::string string_text = "C++";
     bool boolean_value = true;
+    std::vector&lt;int&gt; vector_example = {1, 2, 3};
     
     return 0;
 }
                 </code></pre>
-                <h4>2. 条件语句</h4>
-                <pre><code>
-if (x > 0) {
-    std::cout << "x is positive" << std::endl;
-} else if (x < 0) {
-    std::cout << "x is negative" << std::endl;
-} else {
-    std::cout << "x is zero" << std::endl;
+                <h4>2. 常量与变量、输入与输出</h4>
+                <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+int main() {
+    // 常量
+    const int MAX_VALUE = 100;
+
+    // 变量
+    int num = 5;
+    double pi = 3.14;
+
+    // 输入
+    std::cout << "Enter a number: ";
+    int input_num;
+    std::cin >> input_num;
+
+    // 输出
+    std::cout << "The number is: " << input_num << std::endl;
+    std::cout << "The value of pi is: " << pi << std::endl;
+
+    return 0;
 }
                 </code></pre>
-                <h4>3. 循环</h4>
-                <pre><code>
+                <h4>3. 条件语句</h4>
+                <pre><code class="language-cpp">
+if (x > 0) {
+    std::cout << "x是正数" << std::endl;
+} else if (x < 0) {
+    std::cout << "x是负数" << std::endl;
+} else {
+    std::cout << "x是零" << std::endl;
+}
+
+// 三元运算符
+int result = (x > 0) ? x : -x;
+                </code></pre>
+                <h4>4. 循环</h4>
+                <pre><code class="language-cpp">
 // For 循环
 for (int i = 0; i < 5; i++) {
     std::cout << i << std::endl;
@@ -189,23 +404,128 @@ while (count < 5) {
     std::cout << count << std::endl;
     count++;
 }
+
+// 范围-based for 循环 (C++11)
+std::vector&lt;int&gt; numbers = {1, 2, 3, 4, 5};
+for (const auto& num : numbers) {
+    std::cout << num << std::endl;
+}
                 </code></pre>
-                <h4>4. 函数</h4>
-                <pre><code>
+                <h4>5. 函数</h4>
+                <pre><code class="language-cpp">
 #include &lt;string&gt;
 
 std::string greet(const std::string& name) {
-    return "Hello, " + name + "!";
+    return "你好，" + name + "！";
 }
 
 int main() {
-    std::cout << greet("Alice") << std::endl;
+    std::cout << greet("世界") << std::endl;
+    return 0;
+}
+
+// 函数重载
+int add(int a, int b) {
+    return a + b;
+}
+
+double add(double a, double b) {
+    return a + b;
+}
+
+// 简单函数示例
+#include &lt;iostream&gt;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int result = add(3, 4);
+    std::cout << "The result of adding 3 and 4 is: " << result << std::endl;
+    return 0;
+}
+                </code></pre>
+                <h4>6. 结构体</h4>
+                <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+struct Person {
+    std::string name;
+    int age;
+};
+
+int main() {
+    Person p;
+    p.name = "Alice";
+    p.age = 30;
+    std::cout << "Name: " << p.name << ", Age: " << p.age << std::endl;
+    return 0;
+}
+                </code></pre>
+                <h4>7. 数组</h4>
+                <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    std::cout << "The third element is: " << arr[2] << std::endl;
+    return 0;
+}
+                </code></pre>
+                <h4>8. 字符数组</h4>
+                <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+int main() {
+    char str[] = "Hello";
+    std::cout << str << std::endl;
+    return 0;
+}
+                </code></pre>
+                <h3>高级特性</h3>
+                <h4>1. 类和对象</h4>
+                <pre><code class="language-cpp">
+class Animal {
+protected:
+    std::string name;
+
+public:
+    Animal(const std::string& name) : name(name) {}
+    virtual void makeSound() = 0;
+};
+
+class Dog : public Animal {
+public:
+    Dog(const std::string& name) : Animal(name) {}
+    void makeSound() override {
+        std::cout << name << "汪汪叫" << std::endl;
+    }
+};
+
+int main() {    
+    Dog dog("旺财");
+    dog.makeSound();  // 输出：旺财汪汪叫
+    return 0;
+}
+                </code></pre>
+                <h4>2. 模板</h4>
+                <pre><code class="language-cpp">
+template &lt;typename T&gt;
+T max(T a, T b) {
+    return (a > b) ? a : b;
+}
+
+int main() {
+    std::cout << max(3, 7) << std::endl;  // 输出：7
+    std::cout << max(3.14, 2.72) << std::endl;  // 输出：3.14
     return 0;
 }
                 </code></pre>
             </div>
         </main>
     </div>
+    <script src="js/prism.js"></script>
     <script src="js/work.js"></script>
 </body>
 </html>
