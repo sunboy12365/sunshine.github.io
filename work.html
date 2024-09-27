@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编程语言学习笔记</title>
+    <link rel="stylesheet" href="css/work.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside id="sidebar">
+            <h1>编程语言学习笔记</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" class="language-select" data-lang="python">Python</a></li>
+                    <li><a href="#" class="language-select" data-lang="cpp">C++</a></li>
+                </ul>
+            </nav>
+            <div class="quick-links">
+                <a href="index.html">首页</a>
+                <a href="#" id="favorites">我的收藏</a>
+            </div>
+        </aside>
+        <main>
+            <button id="sidebar-toggle">☰</button>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="搜索笔记...">
+                <button id="search-button">搜索</button>
+            </div>
+            <h2 id="language-title">Python 学习笔记</h2>
+            <div class="content" id="python-content">
+                <h3>基础语法</h3>
+                <h4>1. 变量和数据类型</h4>
+                <pre><code>
+# 变量赋值
+x = 5
+y = "Hello, World!"
+
+# 数据类型
+integer_num = 10
+float_num = 3.14
+string_text = "Python"
+boolean_value = True
+list_example = [1, 2, 3]
+tuple_example = (1, 2, 3)
+dict_example = {"name": "John", "age": 30}
+                </code></pre>
+                <h4>2. 条件语句</h4>
+                <pre><code>
+if x > 0:
+    print("x is positive")
+elif x < 0:
+    print("x is negative")
+else:
+    print("x is zero")
+                </code></pre>
+                <h4>3. 循环</h4>
+                <pre><code>
+# For 循环
+for i in range(5):
+    print(i)
+
+# While 循环
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+                </code></pre>
+                <h4>4. 函数</h4>
+                <pre><code>
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Alice"))
+                </code></pre>
+            </div>
+            <div class="content" id="cpp-content" style="display: none;">
+                <h3>基础语法</h3>
+                <h4>1. 变量和数据类型</h4>
+                <pre><code>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    // 变量赋值
+    int x = 5;
+    std::string y = "Hello, World!";
+
+    // 数据类型
+    int integer_num = 10;
+    float float_num = 3.14f;
+    std::string string_text = "C++";
+    bool boolean_value = true;
+    
+    return 0;
+}
+                </code></pre>
+                <h4>2. 条件语句</h4>
+                <pre><code>
+if (x > 0) {
+    std::cout << "x is positive" << std::endl;
+} else if (x < 0) {
+    std::cout << "x is negative" << std::endl;
+} else {
+    std::cout << "x is zero" << std::endl;
+}
+                </code></pre>
+                <h4>3. 循环</h4>
+                <pre><code>
+// For 循环
+for (int i = 0; i < 5; i++) {
+    std::cout << i << std::endl;
+}
+
+// While 循环
+int count = 0;
+while (count < 5) {
+    std::cout << count << std::endl;
+    count++;
+}
+                </code></pre>
+                <h4>4. 函数</h4>
+                <pre><code>
+#include &lt;string&gt;
+
+std::string greet(const std::string& name) {
+    return "Hello, " + name + "!";
+}
+
+int main() {
+    std::cout << greet("Alice") << std::endl;
+    return 0;
+}
+                </code></pre>
+            </div>
+        </main>
+    </div>
+    <script src="js/work.js"></script>
+</body>
+</html>

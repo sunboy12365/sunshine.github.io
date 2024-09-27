@@ -1,0 +1,17 @@
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    #life, #work {
+        height: 50vh;
+    }
+
+    #life::before, #work::before {
+        animation: none;
+    }
+
+    #life:hover::before, #work:hover::before {
+        animation: wave 2s infinite ease-in-out;
+    }
+}

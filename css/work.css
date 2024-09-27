@@ -1,0 +1,318 @@
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+aside {
+    width: 200px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+aside.active {
+    transform: translateX(0);
+}
+
+/* 添加一个触发按钮 */
+#sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #34495e;
+    color: #ecf0f1;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    z-index: 1001;
+}
+
+#sidebar-toggle:hover {
+    background-color: #2c3e50;
+}
+
+main {
+    width: 100%;
+    padding: 20px;
+    padding-left: 220px; /* 为侧边栏留出空间 */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: padding-left 0.3s ease;
+}
+
+main.sidebar-active {
+    margin-left: 200px;
+}
+
+main.sidebar-hidden {
+    padding-left: 20px;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin-bottom: 10px;
+}
+
+nav ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #3498db;
+}
+
+.quick-links {
+    margin-top: auto;
+    margin-bottom: 20px; /* 为底部按钮留出空间 */
+}
+
+.quick-links a {
+    display: block;
+    color: #ecf0f1;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.quick-links a:hover {
+    color: #3498db;
+}
+
+.search-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    z-index: 1000;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#search-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+}
+
+#search-input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+#search-button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+    background-color: #2980b9;
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #34495e;
+    margin-top: 20px;
+}
+
+.content {
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    aside, main {
+        width: 100%;
+    }
+
+    aside {
+        order: 2;
+    }
+
+    main {
+        order: 1;
+    }
+}
+
+pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid #3498db;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+}
+
+code {
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+/* 在文件末尾添加以下样式 */
+#exit-search {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#exit-search:hover {
+    background-color: #c0392b;
+}
+
+mark {
+    background-color: yellow;
+    padding: 2px 0;
+}
+
+/* 在文件末尾添加以下样式 */
+
+#search-navigation {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+#search-count {
+    margin-right: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+#prev-result, #next-result, #exit-search {
+    margin-left: 5px;
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#prev-result:hover, #next-result:hover {
+    background-color: #2980b9;
+}
+
+#exit-search {
+    background-color: #e74c3c;
+}
+
+#exit-search:hover {
+    background-color: #c0392b;
+}
+
+.current-highlight {
+    background-color: #f1c40f;
+    padding: 2px 0;
+    box-shadow: 0 0 5px rgba(241, 196, 15, 0.5);
+}
+
+/* 保留之前的样式，添加或修改以下样式 */
+
+#sidebar {
+    width: 200px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px;
+    position: fixed;
+    left: -200px;
+    top: 0;
+    bottom: 0;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+#sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #34495e;
+    color: #ecf0f1;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: left 0.3s ease, background-color 0.3s ease;
+    z-index: 1001;
+}
+
+#sidebar-toggle:hover {
+    background-color: #2c3e50;
+}
+
+main {
+    transition: margin-left 0.3s ease;
+}
+
+main.sidebar-active {
+    margin-left: 200px;
+}
+
+/* 其他样式保持不变 */

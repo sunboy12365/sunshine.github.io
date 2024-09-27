@@ -1,0 +1,220 @@
+body {
+    font-family: 'Noto Serif SC', serif;
+    line-height: 1.6;
+    color: #2c3e50; /* 深蓝色文字 */
+    margin: 0;
+    padding: 0;
+    background-color: #87CEEB; /* 天蓝色背景 */
+}
+
+.background-decoration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.floating-element {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    animation: float 20s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+.floating-element:nth-child(1) {
+    top: 10%;
+    left: 5%;
+    width: 100px;
+    height: 100px;
+}
+
+.floating-element:nth-child(2) {
+    top: 30%;
+    right: 10%;
+    width: 80px;
+    height: 80px;
+    animation-delay: -5s;
+}
+
+.floating-element:nth-child(3) {
+    bottom: 15%;
+    left: 15%;
+    width: 120px;
+    height: 120px;
+    animation-delay: -10s;
+}
+
+.page-title {
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    font-size: 3em;
+    color: #34495e; /* 深蓝色标题 */
+    text-align: center;
+    margin-top: 50px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+main {
+    max-width: 1200px;
+    margin: 80px auto 0; /* 增加上边距，为悬浮导航栏留出空间 */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #f8f9fa; /* 浅灰色背景 */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+h2 {
+    color: #2980b9; /* 蓝色标题 */
+    border-bottom: 2px solid #3498db; /* 蓝色分割线 */
+    padding-bottom: 10px;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+
+.btn {
+    background-color: #3498db; /* 蓝色按钮 */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2980b9; /* 深蓝色悬停效果 */
+}
+
+/* 其余样式保持不变 */
+
+.floating-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(52, 152, 219, 0.9); /* 蓝色半透明背景 */
+    padding: 10px 20px;
+    border-radius: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.floating-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.floating-nav li {
+    margin: 0 15px;
+}
+
+.floating-nav a {
+    text-decoration: none;
+    color: #fff; /* 白色文字 */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.floating-nav a:hover {
+    color: #f39c12; /* 橙色悬停效果 */
+}
+
+.photo-grid, .painting-grid, .sports-intro, #travel-album, #moments {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.photo-item, .painting-item, .sport-item, .travel-photo, .moment-item {
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    transform: rotate(var(--rotation));
+}
+
+.photo-item:nth-child(odd), .painting-item:nth-child(odd), .sport-item:nth-child(odd), 
+.travel-photo:nth-child(odd), .moment-item:nth-child(odd) {
+    --rotation: -2deg;
+}
+
+.photo-item:nth-child(even), .painting-item:nth-child(even), .sport-item:nth-child(even), 
+.travel-photo:nth-child(even), .moment-item:nth-child(even) {
+    --rotation: 2deg;
+}
+
+.photo-item:hover, .painting-item:hover, .sport-item:hover, .travel-photo:hover, .moment-item:hover {
+    transform: scale(1.05) rotate(0deg);
+    z-index: 1;
+}
+
+.photo-item img, .painting-item img, .sport-item img, .travel-photo img, .moment-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.photo-item p, .painting-item p, .sport-item p, .travel-photo p, .moment-item p {
+    padding: 10px;
+    text-align: center;
+}
+
+#travel-map {
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transform: rotate(-1deg);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ... 其余样式保持不变 ... */
+
+/* 在文件末尾添加以下样式 */
+
+.home-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(52, 152, 219, 0.9);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.home-button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* 调整浮动导航栏的位置，以免与返回按钮重叠 */
+.floating-nav {
+    left: auto;
+    right: 20px;
+    transform: none;
+}

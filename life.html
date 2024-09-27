@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的生活 - 丰富多彩的人生旅程</title>
+    <link rel="stylesheet" href="css/life.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-decoration">
+        <div class="light-effect"></div>
+    </div>
+    
+    <header>
+        <nav class="floating-nav">
+            <ul>
+                <li><a href="#hobbies">兴趣爱好</a></li>
+                <li><a href="#travel">旅行经历</a></li>
+                <li><a href="#family-friends">家庭与朋友</a></li>
+                <li><a href="#personal-growth">个人成长</a></li>
+            </ul>
+        </nav>
+        <!-- 添加返回首页按钮 -->
+        <a href="index.html" class="home-button">返回首页</a>
+    </header>
+    
+    <main>
+        <h1 class="page-title">我的人生画卷</h1>
+        
+        <section id="hobbies">
+            <h2>兴趣爱好</h2>
+            
+            <div id="photography">
+                <h3>摄影</h3>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <img src="https://via.placeholder.com/300x200.png?text=摄影作品1" alt="摄影作品1">
+                        <p>摄影作品1描述</p>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://via.placeholder.com/300x200.png?text=摄影作品2" alt="摄影作品2">
+                        <p>摄影作品2描述</p>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://via.placeholder.com/300x200.png?text=摄影作品3" alt="摄影作品3">
+                        <p>摄影作品3描述</p>
+                    </div>
+                </div>
+                <a href="photography-stories.html" class="btn">查看摄影故事</a>
+            </div>
+
+            <div id="painting">
+                <h3>绘画</h3>
+                <div class="painting-categories">
+                    <button class="category-btn">水彩</button>
+                    <button class="category-btn">油画</button>
+                    <button class="category-btn">素描</button>
+                </div>
+                <div class="painting-grid">
+                    <div class="painting-item">
+                        <img src="https://via.placeholder.com/250x250.png?text=绘画作品1" alt="绘画作品1">
+                        <p>绘画作品1描述</p>
+                    </div>
+                    <div class="painting-item">
+                        <img src="https://via.placeholder.com/250x250.png?text=绘画作品2" alt="绘画作品2">
+                        <p>绘画作品2描述</p>
+                    </div>
+                    <div class="painting-item">
+                        <img src="https://via.placeholder.com/250x250.png?text=绘画作品3" alt="绘画作品3">
+                        <p>绘画作品3描述</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sports">
+                <h3>运动</h3>
+                <div class="sports-intro">
+                    <div class="sport-item">
+                        <img src="https://via.placeholder.com/150x150.png?text=跑步" alt="跑步">
+                        <h4>跑步</h4>
+                        <p>跑步简介...</p>
+                    </div>
+                    <div class="sport-item">
+                        <img src="https://via.placeholder.com/150x150.png?text=游泳" alt="游泳">
+                        <h4>游泳</h4>
+                        <p>游泳简介...</p>
+                    </div>
+                    <div class="sport-item">
+                        <img src="https://via.placeholder.com/150x150.png?text=瑜伽" alt="瑜伽">
+                        <h4>瑜伽</h4>
+                        <p>瑜伽简介...</p>
+                    </div>
+                </div>
+                <a href="sports-journey.html" class="btn">我的运动历程</a>
+                <a href="sports-stories.html" class="btn">运动趣事和挑战</a>
+            </div>
+        </section>
+
+        <section id="travel">
+            <h2>旅行经历</h2>
+            <div id="travel-map"></div>
+            <div id="travel-album">
+                <div class="travel-photo">
+                    <img src="https://via.placeholder.com/200x150.png?text=旅行照片1" alt="旅行照片1">
+                    <p>旅行照片1描述</p>
+                </div>
+                <div class="travel-photo">
+                    <img src="https://via.placeholder.com/200x150.png?text=旅行照片2" alt="旅行照片2">
+                    <p>旅行照片2描述</p>
+                </div>
+                <div class="travel-photo">
+                    <img src="https://via.placeholder.com/200x150.png?text=旅行照片3" alt="旅行照片3">
+                    <p>旅行照片3描述</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="family-friends">
+            <h2>家庭与朋友</h2>
+            <div id="moments">
+                <div class="moment-item">
+                    <img src="https://via.placeholder.com/300x200.png?text=家庭聚会" alt="家庭聚会">
+                    <p>家庭聚会照片描述</p>
+                </div>
+                <div class="moment-item">
+                    <img src="https://via.placeholder.com/300x200.png?text=朋友出游" alt="朋友出游">
+                    <p>朋友出游照片描述</p>
+                </div>
+            </div>
+            <div id="stories">
+                <div class="story-item">
+                    <h4>难忘的生日派对</h4>
+                    <p>故事简介...</p>
+                </div>
+                <div class="story-item">
+                    <h4>一次意外的冒险</h4>
+                    <p>故事简介...</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="personal-growth">
+            <h2>个人成长与感悟</h2>
+            <div id="inspiration">
+                <h3>心灵鸡汤</h3>
+                <div class="inspiration-item">
+                    <p>"生活就像一盒巧克力，你永远不知道下一颗是什么味道。"</p>
+                </div>
+                <button id="random-inspiration">随机一条</button>
+            </div>
+            <div id="challenges">
+                <h3>挑战与成长</h3>
+                <div class="challenge-item">
+                    <h4>克服恐高</h4>
+                    <p>挑战描述...</p>
+                </div>
+                <div class="challenge-item">
+                    <h4>学习新语言</h4>
+                    <p>挑战描述...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 我的生活画卷. 保留所有权利。</p>
+    </footer>
+
+    <script src="js/life.js"></script>
+</body>
+</html>
